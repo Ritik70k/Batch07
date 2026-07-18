@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #333;
+            height: 100vh;
+        }
+
+        .wire {
+            width: 4px;
+            height: 150px;
+            background: #111;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bulb-cont {
+            position: absolute;
+            left: 50%;
+            top: 150px;
+            transform: translateX(-50%);
+        }
+
+        .bulb {
+            rotate: 180deg;
+            width: 75px;
+            height: 75px;
+            display: block;
+            position: relative;
+            z-index: 5;
+        }
+
+
+        .light {
+            position: absolute;
+            top: 72px;
+            left: 40%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 350px;
+            clip-path: polygon(48% 0, 54% 0, 100% 100%, 0 100%);
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 150, .8),
+                    rgba(255, 255, 120, .25),
+                    transparent);
+            filter: blur(12px);
+            z-index: 0;
+        }
+
+        .btn-cont {
+            position: absolute;
+            right: 17%;
+            top: 20%;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .btn {
+
+            padding: 15px 5px;
+            border: none;
+            color: #333;
+            font-size: large;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene">
+
+        <div class="wire"></div>
+
+        <div class="bulb-cont">
+
+            <svg class="bulb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M9.97308 18H11V13H13V18H14.0269C14.1589 16.7984 14.7721 15.8065 15.7676 14.7226C15.8797 14.6006 16.5988 13.8564 16.6841 13.7501C17.5318 12.6931 18 11.385 18 10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10C6 11.3843 6.46774 12.6917 7.31462 13.7484C7.40004 13.855 8.12081 14.6012 8.23154 14.7218C9.22766 15.8064 9.84103 16.7984 9.97308 18ZM10 20V21H14V20H10ZM5.75395 14.9992C4.65645 13.6297 4 11.8915 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10C20 11.8925 19.3428 13.6315 18.2443 15.0014C17.624 15.7748 16 17 16 18.5V21C16 22.1046 15.1046 23 14 23H10C8.89543 23 8 22.1046 8 21V18.5C8 17 6.37458 15.7736 5.75395 14.9992Z">
+                </path>
+            </svg>
+
+            <div class="glow"></div>
+
+            <div id="light-cont"></div>
+
+        </div>
+
+    </div>
+    <div class="btn-cont">
+        <button class="btnOn btn">ON</button>
+        <button class="btnOff btn">OFF</button>
+    </div>
+
+
+    <script>
+        const btnOn = document.querySelector(".btnOn");
+        const btnOff = document.querySelector(".btnOff");
+        const bulb = document.querySelector(".bulb");
+        const lightCont = document.querySelector("#light-cont");
+        let flag = false;
+        btnOn.addEventListener("click", () => {
+            lightCont.classList.add("light");
+            btnOn.style.scale = "1.2";
+            btnOff.style.scale = "1";
+            bulb.style.fill = "#ffd700";
+            flag = true;
+        });
+        btnOff.addEventListener("click", () => {
+            if (flag) {
+                lightCont.classList.remove("light");
+                btnOn.style.scale = "1";
+                btnOff.style.scale = "1.2";
+                bulb.style.fill = "#111";
+                flag = false;
+            }
+
+        });
+    </script>
+</body>
+
+</html>
