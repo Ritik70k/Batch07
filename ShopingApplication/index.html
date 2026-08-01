@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body class="bg-gray-100">
+    <div class="max-w-7xl mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-8"> Shopping Cart</h1>
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- FORM -->
+            <div class="bg-white shadow rounded-lg p-5">
+                <h2 class="text-xl font-semibold mb-5">
+                    Add Product
+                </h2>
+                <form id="productForm" class="space-y-4">
+
+                    <input id="productName" type="text" placeholder="Product Name" class="w-full border p-2 rounded">
+                    <input id="price" type="number" placeholder="Price" class="w-full border p-2 rounded">
+                    <input id="quantity" type="number" placeholder="Quantity" class="w-full border p-2 rounded">
+                    <select id="category" class="w-full border p-2 rounded">
+                        <option value="">Select Category</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Books</option>
+                        <option>Food</option>
+                    </select>
+
+                    <button id="addBtn" class="w-full bg-blue-600 text-white py-2 rounded">
+                        Add Product
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="md:col-span-2 space-y-6">
+
+                <!-- Search -->
+                <div class="bg-white p-5 rounded-lg shadow flex gap-4">
+
+                    <input id="searchInput" type="text" placeholder="Search Product" class="border p-2 rounded flex-1">
+                    <select id="filterCategory" class="border p-2 rounded">
+                        <option value="all">All</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Books</option>
+                        <option>Food</option>
+                    </select>
+
+                </div>
+
+                <!-- Summary -->
+                <div class="grid md:grid-cols-3 gap-4">
+
+                    <div class="bg-white shadow rounded p-4">
+
+                        <p>Total Products</p>
+
+                        <h2 id="totalProducts" class="text-2xl font-bold">
+                            0
+                        </h2>
+
+                    </div>
+
+                    <div class="bg-white shadow rounded p-4">
+                        <p>Total Quantity</p>
+                        <h2 id="totalQuantity" class="text-2xl font-bold">0</h2>
+                    </div>
+
+                    <div class="bg-white shadow rounded p-4">
+                        <p>Grand Total</p>
+                        <h2 id="grandTotal" class="text-2xl font-bold">0</h2>
+                    </div>
+
+                </div>
+
+                <!-- Clear -->
+
+                <button id="clearCart" class="bg-red-600 text-white px-5 py-2 rounded">
+                    Clear Cart
+                </button>
+
+                <!-- Products -->
+
+                <div id="productContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Cards -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
